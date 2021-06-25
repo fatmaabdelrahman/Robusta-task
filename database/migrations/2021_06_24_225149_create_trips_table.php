@@ -17,7 +17,6 @@ class CreateTripsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->foreignIdFor(\App\Models\Bus::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(\App\Models\Route::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamp('departure_time')->nullable();
             $table->timestamp('arrival_time')->nullable();
             $table->softDeletes();

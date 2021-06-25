@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([], function () {
+    //login service
     Route::group(['prefix' => 'auth'], function () {
         Route::post('login', [AuthenticationController::class, 'login']);
     });
-
+    Route::group(['middleware' => 'auth:api'], function () {
+        //service for User can book a seat if there is an available seat
+        Route::post('booking-trip', [BookingController::class, 'bookingTrip']);
+        //service for available seat list
+        Route::get('seat-list', [SeatController::class, 'seatList']);
+    });
 });

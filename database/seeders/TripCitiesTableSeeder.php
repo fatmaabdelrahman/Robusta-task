@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\City;
 use Illuminate\Database\Seeder;
 
-class CitiesTableSeeder extends Seeder
+class TripCitiesTableSeeder extends Seeder
 {
 
     /**
@@ -15,37 +14,45 @@ class CitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('cities')->delete();
-        \DB::table('cities')->insert(array(
+
+
+        \DB::table('trip_cities')->delete();
+        \DB::table('trip_cities')->insert(array(
             0 =>
                 array(
-                    'name' => 'cairo',
-                    'deleted_at' => NULL,
+                    'city_id' => '1',
+                    'trip_id' => '1',
+                    'is_main'=>1,
                     'created_at' => '2022-06-25 07:47:40',
                     'updated_at' => '2022-06-25 07:47:40',
                 ),
             1 =>
                 array(
-                    'name' => 'AlFayyum',
-                    'deleted_at' => NULL,
+                    'city_id' => '2',
+                    'trip_id' => '1',
+                    'is_main'=>0,
                     'created_at' => '2022-06-25 07:47:40',
                     'updated_at' => '2022-06-25 07:47:40',
                 ),
             2 =>
                 array(
-                    'name' => 'AlMinya',
-                    'deleted_at' => NULL,
+                    'city_id' => '3',
+                    'trip_id' => '1',
+                    'is_main'=>0,
                     'created_at' => '2022-06-25 07:47:40',
                     'updated_at' => '2022-06-25 07:47:40',
                 ),
             3 =>
                 array(
-                    'name' => 'Asyut',
-                    'deleted_at' => NULL,
+                    'city_id' => '4',
+                    'trip_id' => '1',
+                    'is_main'=>1,
                     'created_at' => '2022-06-25 07:47:40',
                     'updated_at' => '2022-06-25 07:47:40',
                 ),
         ));
+
+
 
 
     }

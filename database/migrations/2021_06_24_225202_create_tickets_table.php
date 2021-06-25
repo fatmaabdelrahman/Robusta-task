@@ -18,7 +18,11 @@ class CreateTicketsTable extends Migration
             $table->foreignIdFor(\App\Models\Trip::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(\App\Models\Seat::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->decimal('price');
+            $table->foreignIdFor(\App\Models\Bus::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('first_station')->nullable();
+            $table->foreign('first_station')->references('id')->on('cities')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('to_station')->nullable();
+            $table->foreign('to_station')->references('id')->on('cities')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

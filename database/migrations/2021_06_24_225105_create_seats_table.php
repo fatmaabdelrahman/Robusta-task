@@ -17,6 +17,8 @@ class CreateSeatsTable extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\Bus::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('seat_number')->unique();
+            $table->boolean('is_available')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
