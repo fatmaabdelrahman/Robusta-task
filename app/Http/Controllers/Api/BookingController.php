@@ -14,6 +14,7 @@ class BookingController extends Controller
     public function bookingTrip(BookingRequest $request)
     {
         $this->booking($request);
+        return \responder::success(__('ticket added successfully !'));
 
     }
 }
