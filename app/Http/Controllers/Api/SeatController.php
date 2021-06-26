@@ -16,6 +16,7 @@ class SeatController extends Controller
     public function seatList(SeatRequest $request)
     {
         $seat_lists = $this->userTripAvailableSeats($request)->paginate(10);
+//        dd($seat_lists);
         return \responder::success(new BaseCollection($seat_lists, SeatResource::class));
 
     }

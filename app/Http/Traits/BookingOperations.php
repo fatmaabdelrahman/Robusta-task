@@ -19,7 +19,7 @@ trait BookingOperations
             $query->whereIn('city_id', [\request('start_from'), \request('end_to')]);
         })->get();
         $trip = $this->validateTrip($trips);
-        $available_seats = $this->availableBusSeats($trip)->get();
+        $available_seats = $this->availableBusSeats($trip);
         $ticket = $this->reserveTicket($trip, $request, $available_seats);
         return $ticket;
 
@@ -41,9 +41,10 @@ trait BookingOperations
 
     public function availableBusSeats($trip)
     {
-        $available_seats = $trip->bus->seats()->available()->get();
-        throw_if(count($available_seats)== 0, ValidationException::withMessages([__('sorry There is not available seats')]));
-        return $available_seats;
+        $list = $trip->bus->seats()->available();
+        $count=$list->get();
+        throw_if(count($count)== 0, ValidationException::withMessages([__('sorry There is not available seats')]));
+        return $count;
     }
 
     public function reserveTicket($trip, $request, $available_seats)

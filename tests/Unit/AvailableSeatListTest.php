@@ -2,12 +2,11 @@
 
 namespace Tests\Unit;
 
-use App\Http\Traits\BookingOperations;
 use App\Models\User;
-//use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class BookingTripTest extends TestCase
+class AvailableSeatListTest extends TestCase
 {
 //    use RefreshDatabase;
 
@@ -17,16 +16,14 @@ class BookingTripTest extends TestCase
      * @return void
      */
 
-
-
-    public function test_booking_ticket()
+    public function test_available_seat_list_service()
     {
         $user = User::factory()->create();
         $data = [
-            'start_from' => '1',
-            'end_to' => '2',
+            'start_from' => "1",
+            'end_to' => "2",
         ];
-        $this->actingAs($user, 'api')->json('POST', '/api/booking-trip', $data);
+        $this->actingAs($user,'api')->json('GET', '/api/seat-list', $data);
         $this->assertTrue(true);
     }
 
