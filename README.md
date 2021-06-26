@@ -22,3 +22,5 @@ A fleet-management system (bus-booking system) Latest version of laravel framewo
 - use user token in booking service and seats list service.
 
 
+# Run test
+- php artisan test
