@@ -15,8 +15,10 @@ A fleet-management system (bus-booking system) Latest version of laravel framewo
 -  Collection link: https://www.getpostman.com/collections/b7613ca0d4cb47392afb
 
 #Collection Guide 
-
 - Login first 
+    #credentials
+    - email: user@robusta.com
+    - password: 123456
 - use user token in booking service and seats list service.
 
 
